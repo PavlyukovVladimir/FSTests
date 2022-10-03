@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "type": "string"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "userId": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "accessToken",
+    "expirationDate",
+    "userId"
+  ],
+  "additionalProperties": false
+}
