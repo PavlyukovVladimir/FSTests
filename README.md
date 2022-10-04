@@ -8,14 +8,15 @@
 * **Tests**(*without clean old tests results*):
     * **API**:
         * Runs all API tests: `mvn -Dtest=io.thrive.fs.api.tests.*Test test`
-        * [Positive registration scenario with a referral code](io.thrive.fs.api.tests.ApiRegistrationTest.registrationScenarioWithReferCodeTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest test`
-        * [Positive registration scenario without a referral code](io.thrive.fs.api.tests.ApiRegistrationTest.registrationScenarioWithoutReferCodeTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest test`
+        * [Positive registration scenario with a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest test`
+        * [Positive registration scenario without a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest test`
     * **UI**:
         * Runs all UI tests: `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest test`
+        * [Positive registration scenario with a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserHappyTest) `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest test`
 * Generate allure project:
-    * `mvn allure:report` - generate Allure report
+    * `mvn allure:report` - generates an Allure report
     * [view the report](target/site/allure-maven-plugin/index.html)
-    * `mvn allure:serve` - generate Allure report and opens it in the default browser
+    * `mvn allure:serve` - generates an Allure report and opens it in the default browser
 
 ## CI/CD:
 

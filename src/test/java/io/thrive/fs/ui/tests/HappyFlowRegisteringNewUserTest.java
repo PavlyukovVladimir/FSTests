@@ -112,7 +112,7 @@ public class HappyFlowRegisteringNewUserTest extends BaseUISelenideTest{
         // Объект страницы установки пароля
         NewPasswordPage newPasswordPage = new NewPasswordPage(registrationToken);
         // перейдем на страницу установки пароля
-        Selenide.open(Configuration.baseUrl + newPasswordPage.getEndpoint());
+        newPasswordPage.openSetPasswordPage();
 
         newPasswordPage.setPassword(pass);
         newPasswordPage.setConfirmationPassword(pass);

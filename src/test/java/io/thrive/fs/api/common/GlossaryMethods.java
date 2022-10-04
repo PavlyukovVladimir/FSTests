@@ -15,6 +15,7 @@ public class GlossaryMethods{
         glossary = new Glossary(baseUrl);
     }
 
+    @Step("Получаю список стран из глоссария")
     /**
      * @return
      *<pre>{@code
@@ -35,7 +36,7 @@ public class GlossaryMethods{
      *}</pre>
      * @type List&lt;JSONObject&gt;
      */
-    public List<JSONObject> getStripePaymentsHistory() {
+    public List<JSONObject> getGlossaryCountries() {
         Response response = glossary.getGlossaryCountries();
         response.then()
                 .assertThat().statusCode(HttpStatus.SC_OK) // 200

@@ -13,6 +13,7 @@ public class AuthMethods {
         auth = new Auth(baseUrl);
     }
 
+    @Step("Авторизую пользователя {username}")
     /**
      *
      * @param username
@@ -31,9 +32,10 @@ public class AuthMethods {
         return response.getBody().as(JSONObject.class);
     }
 
+    @Step("Авторизую администратора {adminUser}")
     /**
      *
-     * @param username
+     * @param adminUser
      * @param password
      * @return
      * {
@@ -42,8 +44,8 @@ public class AuthMethods {
      *   "userId": 0
      * }
      */
-    public JSONObject adminLogin(String username, String password){
-        Response response = auth.postAuthAdmin(username, password);
+    public JSONObject adminLogin(String adminUser, String password){
+        Response response = auth.postAuthAdmin(adminUser, password);
         int statusCode = response.getStatusCode();
         Assertions.assertEquals(201, statusCode);
         return response.getBody().as(JSONObject.class);

@@ -278,7 +278,7 @@ public class ApiRegistrationTest extends BaseAPITest{
 
     @Step("Get a list of countries and states from the glossary")
     private List<JSONObject> getGlossary() {
-        return glossaryMethods.getStripePaymentsHistory();
+        return glossaryMethods.getGlossaryCountries();
     }
 //</editor-fold>
 

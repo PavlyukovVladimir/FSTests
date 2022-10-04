@@ -1,6 +1,8 @@
 package io.thrive.fs.ui.pages.fs.ui;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -14,6 +16,11 @@ public class NewPasswordPage {
 
     public NewPasswordPage(String registrationToken){
          token = registrationToken;
+    }
+
+    @Step("Переход на страницу регистрации нового пароля.")
+    public void openSetPasswordPage(){
+        Selenide.open(Configuration.baseUrl + this.getEndpoint());
     }
 
     public String getEndpoint(){
