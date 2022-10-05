@@ -15,6 +15,7 @@ public class TransactionsMethods{
         transactions = new Transactions(baseUrl);
     }
 
+    @Step("Получаю историю транзакций от {startDate} до {endDate}")
     /**
      * @param accessToken
      * @param startDate   template: "2022-09-06T16:57:43.413Z"
@@ -44,6 +45,7 @@ public class TransactionsMethods{
         return response.getBody().jsonPath().getList("$", JSONObject.class);
     }
 
+    @Step("Получаю историю транзакций от {startDate} до {endDate}")
     /**
      * @param adminToken
      * @param startDate  template: "2022-09-06T16:57:43.413Z"
@@ -78,6 +80,7 @@ public class TransactionsMethods{
         return response.getBody().jsonPath().getList("$", JSONObject.class);
     }
 
+    @Step("Получаю общую сумму для выплат комиссий всем пользователям")
     /**
      * @return Returns amount for paid
      * @type Double
@@ -90,6 +93,7 @@ public class TransactionsMethods{
         return (Double) response.getBody().as(JSONObject.class).get("total");
     }
 
+    @Step("Получаю баланс пользователя")
     /**
      * @return Returns user's balance
      * <pre>{@code
@@ -108,6 +112,7 @@ public class TransactionsMethods{
         return response.getBody().as(JSONObject.class);
     }
 
+    @Step("Отправляю запрос на выплату по комиссиям")
     /**
      * @param accessToken
      * @param amount

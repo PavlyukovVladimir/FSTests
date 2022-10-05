@@ -1,5 +1,6 @@
 package io.thrive.fs.api.common;
 
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.thrive.fs.api.requests.Stripe;
@@ -17,6 +18,7 @@ public class StripeMethods {
         stripe = new Stripe(baseUrl);
     }
 
+    @Step("Получаю статус подключения Stripe")
     /**
      * @return status ["Unregistered", "Pending", "Registered"]
      */
@@ -28,6 +30,7 @@ public class StripeMethods {
         return (String)response.getBody().as(JSONObject.class).get("status");
     }
 
+    @Step("Получаю ссылку для регистрации аккаунта Stripe")
     /**
      * @return
      * accountLink
@@ -40,6 +43,7 @@ public class StripeMethods {
         return (String)response.getBody().as(JSONObject.class).get("accountLink");
     }
 
+    @Step("Получаю ссылку для перехода в аккаунт Stripe")
     /**
      * @return accountLink
      */
@@ -51,6 +55,7 @@ public class StripeMethods {
         return (String)response.getBody().as(JSONObject.class).get("accountLink");
     }
 
+    @Step("Получаю баланс аккаунта Stripe")
     /**
      * @return
      *<pre>{@code
@@ -69,6 +74,7 @@ public class StripeMethods {
         return response.getBody().as(JSONObject.class);
     }
 
+    @Step("Получаю историю платежей Stripe")
     /**
      * @param accessToken
      * @param startDate template: "2022-09-06T16:57:43.413Z"
@@ -98,6 +104,7 @@ public class StripeMethods {
         return response.getBody().jsonPath().getList("$", JSONObject.class);
     }
 
+    @Step("Получаю ссылку для совершения платежа Stripe")
     /**
      * @param paymentIdHash String
      * @return paymentLink
@@ -110,6 +117,7 @@ public class StripeMethods {
         return (String)response.getBody().as(JSONObject.class).get("paymentLink");
     }
 
+    @Step("Отменяю текущий платеж Stripe")
     public String postStripePaymentsCancelPayout(String adminToken, String paymentIdHash) {
         Response response = stripe.postStripePaymentsCancelPayout(adminToken, paymentIdHash);
         response.then().statusCode(HttpStatus.SC_OK) // 200
@@ -117,6 +125,7 @@ public class StripeMethods {
         return (String)response.getBody().as(JSONObject.class).get("message");
     }
 
+    @Step("Получаю статус платежа Stripe")
     public List<Map> postStripePaymentsStatus(String adminToken) {
         Response response = stripe.postStripePaymentsStatus(adminToken);
         response.then().statusCode(HttpStatus.SC_OK) // 200
