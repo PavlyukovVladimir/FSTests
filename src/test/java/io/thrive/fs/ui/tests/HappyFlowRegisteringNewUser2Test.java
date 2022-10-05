@@ -9,8 +9,9 @@ import io.thrive.fs.api.common.AuthMethods;
 import io.thrive.fs.api.common.UsersMethods;
 import io.thrive.fs.help.Constants;
 import io.thrive.fs.help.DataGenerator;
+import io.thrive.fs.help.MailAPI;
 import io.thrive.fs.help.PostgrestDataBase;
-import io.thrive.fs.ui.pages.fs.ui.HomePage;
+import io.thrive.fs.ui.BaseUISelenideTest;
 import io.thrive.fs.ui.pages.fs.ui.LoginPage;
 import io.thrive.fs.ui.pages.fs.ui.NewPasswordPage;
 import io.thrive.fs.ui.pages.fs.ui.RegistrationPage;
@@ -21,6 +22,9 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.mail.MessagingException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -32,13 +36,14 @@ import static com.codeborne.selenide.Selenide.switchTo;
 @Severity(SeverityLevel.CRITICAL)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest{
+public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest {
     public final static String story = "Happy flow registration new user with refer code";
     private String baseUrl = "";
     private DataGenerator dataGenerator;
-    private WebDriverWait wait;
 
     private String email;
+
+    MailAPI mailAPI;
     private String registrationToken;
     private String password;
     // Объект страницы установки пароля
@@ -46,7 +51,6 @@ public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest{
     private int userId;
     // Объект с методами страницы авторизации
     private LoginPage loginPage;
-
 
     // объект с методами страницы регистрации
     private RegistrationPage registrationPage;
@@ -65,25 +69,12 @@ public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest{
     @Step("Open browser on registration page")
     @Story(story)
     @Order(1)
-    public void happyFlow(){
-        // открываем страницу регистрации нового пользователя
-        String referSuffix = "?referCode=eyJ1c2VySWQiOjM5Nn0=";
-        Selenide.open(RegistrationPage.endpoint + referSuffix);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
-        // Ждем когда текущий url сменится на нужный
-        wait.until(ExpectedConditions.urlToBe(Configuration.baseUrl + RegistrationPage.endpoint + referSuffix));
-        registrationPage = new RegistrationPage();
-    }
-
-    @Test
-    @Step("Open browser on registration page")
-    @Story(story)
-    @Order(1)
     public void openBrowser(){
         // открываем страницу регистрации нового пользователя
-        String referSuffix = "?referCode=eyJ1c2VySWQiOjM5Nn0=";
-        Selenide.open(RegistrationPage.endpoint + referSuffix);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
+//        String referSuffix = "?referCode=eyJ1c2VySWQiOjM5Nn0=";
+        String referSuffix = "";
+        super.openBrowser(RegistrationPage.endpoint + referSuffix);
+//        Selenide.open();
         // Ждем когда текущий url сменится на нужный
         wait.until(ExpectedConditions.urlToBe(Configuration.baseUrl + RegistrationPage.endpoint + referSuffix));
         registrationPage = new RegistrationPage();
@@ -105,7 +96,7 @@ public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest{
     @Order(3)
     public void fillEmailField(){
         // Создаем имейл
-        String email = dataGenerator.getEmail();
+        email = dataGenerator.getEmail();
         registrationPage.setEmail(email);
     }
 
@@ -174,7 +165,10 @@ public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest{
     @Step("Approves user registration")
     @Story(story)
     @Order(10)
-    public void approveUserRegistration(){
+    public void approveUserRegistration() throws MessagingException {
+        // создаем слушатель почты здесь,
+        // чтобы зафиксировать количество писем до появления нового с регистрацией
+        mailAPI = new MailAPI();
         // через api логинимся в админку и подтверждаем регистрацию пользователя
         // TODO надо бы это через UI переделать
         AuthMethods authMethods = new AuthMethods(Configuration.baseUrl + "api");
@@ -199,12 +193,17 @@ public class HappyFlowRegisteringNewUser2Test extends BaseUISelenideTest{
     @Step("Gets registration token")
     @Story(story)
     @Order(11)
-    public void getRegistrationToken(){
+    public void getRegistrationToken() throws IOException, InterruptedException {
         // Далее из базы получаем токен подтверждения регистрации(чтобы не лезть в мыло)
-        // TODO надо бы получение токена из мыла тоже автоматизировать
-        PostgrestDataBase postgrest = new PostgrestDataBase();
+//        PostgrestDataBase postgrest = new PostgrestDataBase();
+//
+//        registrationToken = postgrest.getToken(userId, "registration");
 
-        String registrationToken = postgrest.getToken(userId, "registration");
+        String registrationLink = mailAPI.getFluencyStrikersRegistrationLinkFromMail(email , 200);
+
+//        System.out.println(registrationLink);
+
+        registrationToken = registrationLink.substring(registrationLink.indexOf("token=") + 6);
     }
 
     @Test

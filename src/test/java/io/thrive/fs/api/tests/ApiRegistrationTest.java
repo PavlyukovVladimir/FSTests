@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import io.thrive.fs.api.BaseAPITest;
 import io.thrive.fs.api.common.AuthMethods;
 import io.thrive.fs.api.common.GlossaryMethods;
 import io.thrive.fs.api.common.UsersMethods;
@@ -16,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 @Epic("New user registration")
-public class ApiRegistrationTest extends BaseAPITest{
+public class ApiRegistrationTest extends BaseAPITest {
 
 //<editor-fold desc="Fields">
     private final GlossaryMethods glossaryMethods = new GlossaryMethods(getBaseURL());

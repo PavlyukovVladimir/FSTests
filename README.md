@@ -11,8 +11,10 @@
         * [Positive registration scenario with a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest test`
         * [Positive registration scenario without a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest test`
     * **UI**:
-        * Runs all UI tests: `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest test`
-        * [Positive registration scenario with a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserHappyTest) `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest test`
+        * Runs all UI tests: `mvn -Dtest=io.thrive.fs.ui.tests.*Test test`
+        * [Positive registration scenario without a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserWithoutReferralCodeTest) `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserWithoutReferralCodeTest test`
+        * [Positive registration scenario with a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserWithReferralCodeTest) `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserWithReferralCodeTest test`
+        * [Alternative positive registration scenario without a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUserTest#registrationNewUserHappy2Test) `mvn -Dtest=io.thrive.fs.ui.tests.HappyFlowRegisteringNewUser2Test test`
 * Generate allure project:
     * `mvn allure:report` - generates an Allure report
     * [view the report](target/site/allure-maven-plugin/index.html)

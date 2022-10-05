@@ -30,21 +30,21 @@ public class RegistrationPage {
 
     private SelenideElement btnRegistration = $("button");
 
-    @Step("Ввод ФИО: {fullName}")
+    @Step("Ввожу ФИО: {fullName}")
     public void setFullName(String fullName){
         fldFullName.setValue(fullName);
     }
 
-    @Step("Ввод email: {email}")
+    @Step("Ввожу email: {email}")
     public void setEmail(String email){
         fldEmail.setValue(email);
     }
 
-    @Step("Ввод телефона: {phone}")
+    @Step("Ввожу телефон: {phone}")
     public void setPhone(String phone){
         fldPhone.setValue(phone);
     }
-    @Step("Fill Country field")
+    @Step("Заполняю поле Country: {countryElementNumber} элементом выпадающего списка")
     public void setCountry(int countryElementNumber){
         cbxCountry.click();
         List<SelenideElement> lstCountryElements = $$("#countryId_list + * .ant-select-item-option-content");
@@ -52,7 +52,7 @@ public class RegistrationPage {
 
     }
 
-    @Step("Fill Country field randomly")
+    @Step("Заполняю поле Country случайным образом")
     public void setCountryRandomly(){
         cbxCountry.click();
         List<SelenideElement> lstCountryElements = $$("#countryId_list + * .ant-select-item-option-content");
@@ -60,7 +60,7 @@ public class RegistrationPage {
         lstCountryElements.get((int)(Math.random() * countryCount)).click();
     }
 
-    @Step("Fill State field")
+    @Step("Заполняю поле State: {stateElementNumber} элементом выпадающего списка")
     public void setState(int stateElementNumber){
         cbxState.click();
         List<SelenideElement> lstStateElements = $$("#stateId_list + * .ant-select-item-option-content");
@@ -68,7 +68,7 @@ public class RegistrationPage {
 
     }
 
-    @Step("Fill State field randomly")
+    @Step("Заполняю поле State случайным образом")
     public void setStateRandomly(){
         cbxState.click();
         WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(15));
@@ -79,12 +79,12 @@ public class RegistrationPage {
 
     }
 
-    @Step("Fill City fieldy")
+    @Step("Заполняю поле City: {city}")
     public void setCity(String city){
         fldCity.setValue(city);
     }
 
-    @Step("\"I WANT TO BECOME A STRIKER\" button click")
+    @Step("Нажимаю кнопку \"I WANT TO BECOME A STRIKER\"")
     public void registrationClick(){
         btnRegistration.shouldBe(Condition.enabled, Duration.ofSeconds(4)).click();
     }

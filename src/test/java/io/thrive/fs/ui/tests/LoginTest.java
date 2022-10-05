@@ -2,6 +2,7 @@ package io.thrive.fs.ui.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import io.thrive.fs.ui.BaseUISelenideTest;
 import io.thrive.fs.ui.pages.fs.ui.CommissionsPage;
 import io.thrive.fs.ui.pages.fs.ui.HomePage;
 import io.thrive.fs.ui.pages.fs.ui.LoginPage;
@@ -13,7 +14,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoginTest extends BaseUISelenideTest{
+public class LoginTest extends BaseUISelenideTest {
     @Test
     void runBrowser(){
         // открываем браузер

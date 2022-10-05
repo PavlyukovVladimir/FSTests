@@ -1,4 +1,4 @@
-package io.thrive.fs.ui.tests;
+package io.thrive.fs.ui;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -7,15 +7,17 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.thrive.fs.help.Constants;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BaseUISelenideTest {
 
-    @BeforeEach
+    protected static WebDriverWait wait;
+    @BeforeAll
     @DisplayName("Set browser configuration, add Allure selenide listener.")
-    void setAll(){
+    static void setAll(){
 
 //        Configuration.driverManagerEnabled = true;
 //        Configuration.webdriverLogsEnabled = true;
@@ -30,17 +32,19 @@ public class BaseUISelenideTest {
                         .savePageSource(false));  // не сохранять копии html страниц
     }
 
-    @AfterEach
+    @AfterAll
     @DisplayName("Close browser.")
-    public void tearDown() {
+    static public void tearDown() {
         Selenide.webdriver().driver().getWebDriver().close();
         Selenide.webdriver().driver().getWebDriver().quit();
     }
 
     @Step("Откроем браузер на странице: " + Constants.BASE_URL + "{url}")
     @DisplayName("Open browser.")
-    public  void openBrowser(String url){
+    public void openBrowser(String url){
         Selenide.open(url);
         WebDriverRunner.getWebDriver().manage().window().maximize();
+        // создаем "ждалку"
+        BaseUISelenideTest.wait = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(100));
     }
 }

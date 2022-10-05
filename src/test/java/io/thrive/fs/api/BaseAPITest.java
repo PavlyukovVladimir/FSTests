@@ -1,4 +1,4 @@
-package io.thrive.fs.api.tests;
+package io.thrive.fs.api;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.thrive.fs.help.Constants;

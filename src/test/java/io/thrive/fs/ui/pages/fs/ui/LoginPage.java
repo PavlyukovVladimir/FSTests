@@ -16,17 +16,17 @@ public class LoginPage {
     private SelenideElement fldPassword = $(new By.ById("password"));
     private SelenideElement btnLogin = $("button");
 
-    @Step("Заполним имя пользователя: \"{username}\"")
+    @Step("Заполняю имя пользователя: \"{username}\"")
     public void setUsername(String username){
         fldUsername.setValue(username);
     }
 
-    @Step("Заполним пароль: \"{password}\"")
+    @Step("Заполняю пароль: \"{password}\"")
     public void setPassword(String password){
         fldPassword.setValue(password);
     }
 
-    @Step("Нажмем кнопку")
+    @Step("Нажимаю кнопку авторизации")
     public void btnLoginClick(){
         btnLogin.shouldBe(Condition.visible, Duration.ofSeconds(5)).click();
     }

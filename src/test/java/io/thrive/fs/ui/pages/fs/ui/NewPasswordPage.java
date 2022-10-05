@@ -30,17 +30,17 @@ public class NewPasswordPage {
     private SelenideElement fldConfirmationPassword = $("#passwordConfirmation");
     private SelenideElement btnSubmit = $("button");
 
-    @Step("Ввод пароля: {password}")
+    @Step("Ввожу пароль: {password}")
     public void setPassword(String password){
         fldPassword.setValue(password);
     }
 
-    @Step("Ввод подтверждения пароля: {ConfirmationPassword}")
+    @Step("Ввожу подтверждение пароля: {ConfirmationPassword}")
     public void setConfirmationPassword(String ConfirmationPassword){
         fldConfirmationPassword.setValue(ConfirmationPassword);
     }
 
-    @Step("Нажатие кнопки submit")
+    @Step("Нажимаю кнопку \"submit\"")
     public void btnSubmitClick(){
         btnSubmit.shouldBe(Condition.visible, Duration.ofSeconds(5)).click();
     }
