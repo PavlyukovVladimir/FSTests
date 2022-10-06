@@ -6,7 +6,6 @@ import com.codeborne.selenide.Selenide;
 import io.qameta.allure.*;
 import io.thrive.fs.api.common.AuthMethods;
 import io.thrive.fs.api.common.UsersMethods;
-import io.thrive.fs.help.Constants;
 import io.thrive.fs.help.MailAPI;
 import io.thrive.fs.help.DataGenerator;
 import io.thrive.fs.ui.BaseUISelenideTest;
@@ -16,18 +15,17 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.util.Base64;
 import java.util.List;
-import java.util.Random;
+
+import static io.thrive.fs.api.tests.ApiRegistrationTest.getReferralCodeRandomlyAndAdminToken;
 
 
 @Epic("Тестируем функционал UI")
 @Feature("Регистрация пользователя")
 @Severity(SeverityLevel.CRITICAL)
-public class HappyFlowRegisteringNewUserTest extends BaseUISelenideTest {
+public class UIRegistrationTest extends BaseUISelenideTest {
 
     private String referSuffix = "";
 
@@ -92,6 +90,8 @@ public class HappyFlowRegisteringNewUserTest extends BaseUISelenideTest {
         String registrationLink = mailAPI.getFluencyStrikersRegistrationLinkFromMail(email, 200);
         // извлечем из ссылки на регистрацию, регистрационный токен
         String registrationToken = registrationLink.substring(registrationLink.indexOf("token=") + 6);
+        registrationToken = registrationToken.replaceAll("\r\n", "");
+        registrationToken = registrationToken.replaceAll("\n", "");
         // получаем пароль из генератора данных
         String pass = dataGenerator.getPassword();
         // установим пароль
@@ -132,37 +132,12 @@ public class HappyFlowRegisteringNewUserTest extends BaseUISelenideTest {
     @Test()
     @DisplayName("Регистрируем нового пользователя")
     @Story("Happy flow регистрация нового пользователя c реферальным кодом")
-    @Description("Получаем реферальный код через апи и из UI регистрируем нового пользователя")
+    @Description("Получаю реферальный код через апи и из UI регистрирую нового пользователя")
     public void registrationNewUserWithReferralCodeTest() throws MessagingException, IOException, InterruptedException {
-        referSuffix = "?referCode=" + getReferralCodeRandomly();
+        JSONObject data = getReferralCodeRandomlyAndAdminToken();
+
+        referSuffix = "?referCode=" + data.get("referCode");
+
         registrationNewUserWithoutReferralCodeTest();
-    }
-
-    @Step("Через апи получаем реферальный код")
-    private String getReferralCodeRandomly() {
-        // логинимся админом и получаем adminToken (accessToken)
-        AuthMethods authMethods = new AuthMethods(Configuration.baseUrl + "/api");
-        JSONObject responseObj = authMethods.adminLogin(Constants.ROOT_ADMIN_NAME, Constants.ROOT_ADMIN_PASSWORD);
-        String adminToken = (String) responseObj.get("accessToken");
-
-        UsersMethods usersMethods = new UsersMethods(Configuration.baseUrl + "/api");
-        List<JSONObject> users = usersMethods.usersAll(adminToken, false, false);
-
-        Random random = new Random();
-        int[] randomUsersIDArray = random.ints(users.size(),0,users.size()).toArray();
-
-        int referId = 0;
-        for(int id: randomUsersIDArray){
-            JSONObject user = users.get(id);
-            String mail = (String) user.get("email");
-            if(mail.contains("vladimir.pavlyukov")){
-                referId = (Integer) user.get("id");
-                break;
-            }
-        }
-        if(referId == 0) throw new RuntimeException("Not founded user for referral code");
-
-        String referCode = Base64.getEncoder().encodeToString(("{\"userId\":" + referId + "}").getBytes());
-        return referCode;
     }
 }

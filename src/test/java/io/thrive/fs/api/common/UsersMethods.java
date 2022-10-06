@@ -19,7 +19,7 @@ public class UsersMethods {
         users = new Users(baseUrl);
     }
 
-    @Step("Регистрация пользователя.")
+    @Step("Регистрирую нового пользователя")
     /**
      *
      * @param referCode id of the user who created the invitation link
@@ -61,7 +61,7 @@ public class UsersMethods {
         return response.getBody().as(JSONObject.class);
     }
 
-    @Step("Установка пароля пользователя.")
+    @Step("Устанавливаю пароль пользователя")
     public void usersSetPassword(String token, String password){
         Response response = users.patchUsersSetPassword(token, password);
         response.then()
@@ -79,7 +79,7 @@ public class UsersMethods {
                 .body("message", Matchers.equalTo("Invalid token"));
     }
 
-    @Step("Получение списка пользователей ожидающих подтверждения")
+    @Step("Получаю список пользователей ожидающих подтверждения")
     public List<JSONObject> usersPending(String token){
         Response response = users.getUsersPending(token);
         response.then()
@@ -88,7 +88,7 @@ public class UsersMethods {
         return response.getBody().jsonPath().getList("$", JSONObject.class);
     }
 
-    @Step("Получения списка пользователей. Только рефералы: {isReferral}, только с разрешениями выставлять счета: {invoicingPermission}")
+    @Step("Получаю список пользователей. Только рефералы: {isReferral}, только с разрешениями выставлять счета: {invoicingPermissions}")
     /**
      *
      * @param adminToken
@@ -141,7 +141,7 @@ public class UsersMethods {
         return lstResponse;
     }
 
-    @Step("Одобрение регистрации пользователя с id: {userId}")
+    @Step("Одобряю регистрацию пользователя с id: {userId}")
     /**
      *
      * @param token

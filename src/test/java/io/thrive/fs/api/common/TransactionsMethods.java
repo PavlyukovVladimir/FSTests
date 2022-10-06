@@ -127,6 +127,7 @@ public class TransactionsMethods{
         return response.getBody().jsonPath().getString("@/message");
     }
 
+    @Step("Получаю параметры отложенной выплаты")
     /**
      * @return Returns pending payout amount
      * <pre>{@code

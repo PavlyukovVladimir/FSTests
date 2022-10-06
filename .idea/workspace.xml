@@ -4,54 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70e2f8d-babe-4db6-9e2e-ab731cedd6db" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/allure.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/AuthMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/GlossaryMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/StripeMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/TransactionsMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/UsersMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/requests/Auth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/requests/Glossary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/requests/Stripe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/requests/Transactions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/requests/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/tests/ApiRegistrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/tests/BaseAPITest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/tests/TestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/help/APITestsLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/help/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/help/DataGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/help/MailAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/help/PostgrestDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/help/WebDriverLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/fs/ui/CommissionsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/fs/ui/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/fs/ui/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/fs/ui/NewPasswordPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/fs/ui/RegistrationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/stripe/StripeProfessionalDetailsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/stripe/StripeReviewDetailsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/stripe/StripeSelectPayoutsAccountPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/stripe/StripeSetVerificationCodePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/stripe/StripeStartPhoneConfirmPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/pages/stripe/StripeVerifyPersonalDetailsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/BaseUISelenideTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/HappyFlowRegisteringNewUser2Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/HappyFlowRegisteringNewUserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/LoginTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/UiLoginTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/auth.user.response.schema.201.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/categories.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/users.register.response.post.201.schema.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/users.register.response.post.400.schema.json" afterDir="false" />
+    <list default="true" id="b70e2f8d-babe-4db6-9e2e-ab731cedd6db" name="Changes" comment="office">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/StripeMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/StripeMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/TransactionsMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/TransactionsMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/UsersMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/common/UsersMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/tests/ApiRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/tests/ApiRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/thrive/fs/api/tests/TestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/HappyFlowRegisteringNewUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/thrive/fs/ui/tests/HappyFlowRegisteringNewUserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,21 +31,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/user/IdeaProjects/FSTests"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/IdeaProjects/FSTests&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.thrive.fs.api.tests" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.ApiRegistrationTest">
+  <component name="RunManager" selected="JUnit.ApiRegistrationTest.registrationWithReferCodeScenarioTest">
     <configuration name="ApiRegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FSTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.thrive.fs.api.tests.ApiRegistration2Test" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.thrive.fs.api.tests" />
+      <option name="MAIN_CLASS_NAME" value="io.thrive.fs.api.tests.ApiRegistrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiRegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FSTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.thrive.fs.api.tests.ApiRegistrationTest" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.thrive.fs.api.tests" />
+      <option name="MAIN_CLASS_NAME" value="io.thrive.fs.api.tests.ApiRegistrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiRegistrationTest.registrationWithReferCodeScenarioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FSTests" />
       <extension name="coverage">
         <pattern>
@@ -94,7 +88,24 @@
       </extension>
       <option name="PACKAGE_NAME" value="io.thrive.fs.api.tests" />
       <option name="MAIN_CLASS_NAME" value="io.thrive.fs.api.tests.ApiRegistrationTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="registrationWithReferCodeScenarioTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiRegistrationTest.registrationWithoutReferCodeScenarioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FSTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.thrive.fs.api.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.thrive.fs.api.tests" />
+      <option name="MAIN_CLASS_NAME" value="io.thrive.fs.api.tests.ApiRegistrationTest" />
+      <option name="METHOD_NAME" value="registrationWithoutReferCodeScenarioTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,9 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiRegistrationTest.registrationWithReferCodeScenarioTest" />
+        <item itemvalue="JUnit.ApiRegistrationTest.registrationWithoutReferCodeScenarioTest" />
+        <item itemvalue="JUnit.ApiRegistrationTest" />
         <item itemvalue="JUnit.ApiRegistrationTest" />
         <item itemvalue="JUnit.HappyFlowRegisteringNewUserTest" />
-        <item itemvalue="JUnit.HappyFlowRegisteringNewUser2Test" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664814585363</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="office">
+      <created>1664982755303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664982755303</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +189,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="office" />
+    <option name="LAST_COMMIT_MESSAGE" value="office" />
   </component>
 </project>
