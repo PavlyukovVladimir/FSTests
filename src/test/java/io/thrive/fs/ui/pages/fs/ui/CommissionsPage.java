@@ -26,6 +26,9 @@ public class CommissionsPage {
 
     private SelenideElement tabHistory = $("#rc-tabs-0-tab-3");
 
+    private SelenideElement userProfileDropdown = $("div.user-profile-dropdown");
+    private SelenideElement btnLogout = $x("//button[@class='btn ']");
+
     @Step("Клик по вкладке \"Stripe\"")
     public void tapStripe(){
         tabStripe.click();
@@ -49,5 +52,14 @@ public class CommissionsPage {
         btnMoneyManage.shouldBe(Condition.visible, Duration.ofSeconds(5));
         btnMoneyManage.find("button span").shouldHave(Condition.text("Create"));
         btnMoneyManage.click();
+    }
+
+    @Step("Выходим из аккаунта")
+    public void logout() {
+        userProfileDropdown.click();
+        btnLogout.shouldBe(Condition.exist, Duration.ofSeconds(5))
+                .shouldBe(Condition.visible, Duration.ofSeconds(10))
+                .shouldBe(Condition.enabled)
+                .click();
     }
 }

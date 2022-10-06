@@ -25,7 +25,7 @@ public class BaseUISelenideTest {
 //        Configuration.browserVersion = "104.0.5112.101-1";
         Configuration.headless = false;  // true запускает браузер в невидимом режиме
         Configuration.baseUrl = Constants.BASE_URL;
-        Configuration.holdBrowserOpen = true;  // false не оставляет браузер открытым по завершению теста
+        Configuration.holdBrowserOpen = false;  // false не оставляет браузер открытым по завершению теста
         SelenideLogger.addListener(
                 "AllureSelenide", new AllureSelenide()
                         .screenshots(true)  // делать скриншоты

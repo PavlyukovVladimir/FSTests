@@ -30,9 +30,9 @@ public class UIRegistrationTest extends BaseUISelenideTest {
     private String referSuffix = "";
 
     @Test()
-    @DisplayName("Регистрируем нового пользователя")
+    @DisplayName("Регистрирую нового пользователя без реферального кода")
     @Story("Happy flow регистрация нового пользователя без реферального кода")
-    @Description("Из UI регистрируем нового пользователя")
+    @Description("Из UI регистрируем нового пользователя без реферального кода")
     public void registrationNewUserWithoutReferralCodeTest() throws MessagingException, IOException, InterruptedException {
         // открываем страницу регистрации нового пользователя
         openBrowser(RegistrationPage.endpoint + this.referSuffix);
@@ -127,10 +127,13 @@ public class UIRegistrationTest extends BaseUISelenideTest {
         // по совпадению user id косвенно проверяем что токен от нужного пользователя
         Assertions.assertEquals(userId, ((Long) lsObj.get("userId")).longValue());
         wait.until(ExpectedConditions.urlToBe(Configuration.baseUrl));
+
+        HomePage homePage = new HomePage();
+        homePage.logout();
     }
 
     @Test()
-    @DisplayName("Регистрируем нового пользователя")
+    @DisplayName("Регистрирую нового пользователя c реферальным кодом")
     @Story("Happy flow регистрация нового пользователя c реферальным кодом")
     @Description("Получаю реферальный код через апи и из UI регистрирую нового пользователя")
     public void registrationNewUserWithReferralCodeTest() throws MessagingException, IOException, InterruptedException {
