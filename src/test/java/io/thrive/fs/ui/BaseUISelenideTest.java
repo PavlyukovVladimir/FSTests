@@ -15,9 +15,11 @@ import java.time.Duration;
 public class BaseUISelenideTest {
 
     protected static WebDriverWait wait;
+
     @BeforeAll
-    @DisplayName("Set browser configuration, add Allure selenide listener.")
-    static void setAll(){
+    @Step("Устанавливаю конфигурацию браузера, добавляю Allure selenide listener.")
+    @DisplayName("Устанавливаю конфигурацию браузера, добавляю Allure selenide listener.")
+    static void setAll() {
 
 //        Configuration.driverManagerEnabled = true;
 //        Configuration.webdriverLogsEnabled = true;
@@ -33,15 +35,16 @@ public class BaseUISelenideTest {
     }
 
     @AfterAll
-    @DisplayName("Close browser.")
+    @Step("Закрываю браузер")
+    @DisplayName("Закрываю браузер.")
     static public void tearDown() {
         Selenide.webdriver().driver().getWebDriver().close();
         Selenide.webdriver().driver().getWebDriver().quit();
     }
 
-    @Step("Откроем браузер на странице: " + Constants.BASE_URL + "{url}")
-    @DisplayName("Open browser.")
-    public void openBrowser(String url){
+    @Step("Открываю браузер на странице: " + Constants.BASE_URL + "{url}")
+    @DisplayName("Открываю браузер.")
+    public void openBrowser(String url) {
         Selenide.open(url);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         // создаем "ждалку"

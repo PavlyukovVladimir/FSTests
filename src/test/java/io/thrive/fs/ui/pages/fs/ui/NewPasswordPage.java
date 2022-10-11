@@ -18,7 +18,7 @@ public class NewPasswordPage {
          token = registrationToken;
     }
 
-    @Step("Переход на страницу регистрации нового пароля.")
+    @Step("Перехожу на страницу регистрации нового пароля.")
     public void openSetPasswordPage(){
         Selenide.open(Configuration.baseUrl + this.getEndpoint());
     }

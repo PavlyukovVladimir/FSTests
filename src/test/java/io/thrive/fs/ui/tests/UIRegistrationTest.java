@@ -16,6 +16,8 @@ import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import javax.mail.MessagingException;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -125,8 +127,13 @@ public class UIRegistrationTest extends BaseUISelenideTest {
         }
 
         // по совпадению user id косвенно проверяем что токен от нужного пользователя
-        Assertions.assertEquals(userId, ((Long) lsObj.get("userId")).longValue());
+        long extractionedUserId = ((Long) lsObj.get("userId")).longValue();
+        Assertions.assertEquals(userId, extractionedUserId);
+
         wait.until(ExpectedConditions.urlToBe(Configuration.baseUrl));
+
+        // Сохраняю email и пароль в файл user.json в тест ресурсах
+        saveUserLoginData(email, pass);
 
         HomePage homePage = new HomePage();
         homePage.logout();
@@ -142,5 +149,18 @@ public class UIRegistrationTest extends BaseUISelenideTest {
         referSuffix = "?referCode=" + data.get("referCode");
 
         registrationNewUserWithoutReferralCodeTest();
+    }
+
+    @Step("Сохраняю креды пользователя: mail {email}, pass {password}")
+    @DisplayName("Сохраняю креды пользователя")
+    private void saveUserLoginData(String email, String password) throws IOException {
+        File file = new File("src/test/resources","user.json");
+        if(!file.exists()){
+            file.createNewFile();
+        }
+        FileWriter fileWriter= new FileWriter(file, false);
+        fileWriter.write(String.format("{\n\t\"email\": \"%s\",\n\t\"password\": \"%s\"\n}", email, password));
+        fileWriter.flush();
+        fileWriter.close();
     }
 }
