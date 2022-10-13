@@ -102,6 +102,6 @@ public class WebhookForSales {
 
     @Test
     public void test() throws IOException {
-        fullSales(500L, 1, null);
+        fullSales(500L, 10, null);
     }
 }

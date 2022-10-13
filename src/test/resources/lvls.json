@@ -1,0 +1,51 @@
+{
+  "keys": ["GOAL GETTER I", "GOAL GETTER II", "GOAL GETTER III", "LEADER I", "LEADER II", "TRUE LEADER I", "TRUE LEADER II", "PARTNER"],
+  "GOAL GETTER I": {
+    "stars": 5,
+    "starPrice": 4,
+    "direct": 12,
+    "indirect": 0
+  },
+  "GOAL GETTER II": {
+    "stars": 5,
+    "starPrice": 6,
+    "direct": 13,
+    "indirect": 0
+  },
+  "GOAL GETTER III": {
+    "stars": 5,
+    "starPrice": 10,
+    "direct": 14,
+    "indirect": 0
+  },
+  "LEADER I": {
+    "stars": 5,
+    "starPrice": 16,
+    "direct": 16,
+    "indirect": 4
+  },
+  "LEADER II": {
+    "stars": 5,
+    "starPrice": 30,
+    "direct": 16,
+    "indirect": 6
+  },
+  "TRUE LEADER I": {
+    "stars": 5,
+    "starPrice": 80,
+    "direct": 18,
+    "indirect": 8
+  },
+  "TRUE LEADER II": {
+    "stars": 5,
+    "starPrice": 120,
+    "direct": 18,
+    "indirect": 10
+  },
+  "PARTNER": {
+    "stars": 5,
+    "starPrice": 2147483647,
+    "direct": 18,
+    "indirect": 10
+  }
+}

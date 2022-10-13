@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static io.thrive.fs.api.tests.ApiRegistrationTest.getReferralCodeRandomlyAndAdminToken;
+import static io.thrive.fs.help.FileManipulation.saveUserLoginData;
 
 
 @Epic("Тестируем функционал UI")
@@ -149,18 +150,5 @@ public class UIRegistrationTest extends BaseUISelenideTest {
         referSuffix = "?referCode=" + data.get("referCode");
 
         registrationNewUserWithoutReferralCodeTest();
-    }
-
-    @Step("Сохраняю креды пользователя: mail {email}, pass {password}")
-    @DisplayName("Сохраняю креды пользователя")
-    private void saveUserLoginData(String email, String password) throws IOException {
-        File file = new File("src/test/resources","user.json");
-        if(!file.exists()){
-            file.createNewFile();
-        }
-        FileWriter fileWriter= new FileWriter(file, false);
-        fileWriter.write(String.format("{\n\t\"email\": \"%s\",\n\t\"password\": \"%s\"\n}", email, password));
-        fileWriter.flush();
-        fileWriter.close();
     }
 }

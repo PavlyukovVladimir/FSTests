@@ -8,6 +8,7 @@ import io.thrive.fs.api.BaseAPITest;
 import io.thrive.fs.api.common.AuthMethods;
 import io.thrive.fs.api.common.GlossaryMethods;
 import io.thrive.fs.api.common.UsersMethods;
+import io.thrive.fs.api.requests.Sales;
 import io.thrive.fs.help.Constants;
 import io.thrive.fs.help.DataGenerator;
 import io.thrive.fs.help.MailAPI;
@@ -19,6 +20,8 @@ import org.junit.jupiter.api.Test;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.*;
+
+import static io.thrive.fs.help.FileManipulation.saveUserLoginData;
 
 
 @Epic("Регистрация нового пользователя")
@@ -77,18 +80,18 @@ public class ApiRegistrationTest extends BaseAPITest {
         List<JSONObject> users = usersMethods.usersAll(adminToken, false, false);
 
         Random random = new Random();
-        int[] randomUsersIDArray = random.ints(users.size(),0,users.size()).toArray();
+        int[] randomUsersIDArray = random.ints(users.size(), 0, users.size()).toArray();
 
         int referId = 0;
-        for(int id: randomUsersIDArray){
+        for (int id : randomUsersIDArray) {
             JSONObject user = users.get(id);
             String mail = (String) user.get("email");
-            if(mail.contains("vladimir.pavlyukov")){
+            if (mail.contains("vladimir.pavlyukov")) {
                 referId = (Integer) user.get("id");
                 break;
             }
         }
-        if(referId == 0) throw new RuntimeException("Not founded user for referral code");
+        if (referId == 0) throw new RuntimeException("Not founded user for referral code");
 
         String referCode = Base64.getEncoder().encodeToString(("{\"userId\":" + referId + "}").getBytes());
         JSONObject obj = new JSONObject();
@@ -175,5 +178,13 @@ public class ApiRegistrationTest extends BaseAPITest {
         // логинимся новым пользователем
         JSONObject creds = authMethods.userLogin(email, pass);
         Assertions.assertEquals(userId, (Integer) creds.get("userId"));
+        // Сохраняем креды
+        saveUserLoginData(email, pass);
+    }
+
+    @Test
+    public void test() {
+        Sales sales = new Sales(Constants.BASE_URL + "api/");
+        sales.getSalesAll("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoxMDMsImlhdCI6MTY2NTQ5NzA0NywiZXhwIjoxNjY2MTAxODQ3fQ.zudgIpR8SLFqKYGz9IzpoF9RVz24pVeDDuTe9Xp3YkM");
     }
 }
