@@ -1,42 +1,42 @@
 {
-  "keys": ["GOAL GETTER I", "GOAL GETTER II", "GOAL GETTER III", "LEADER I", "LEADER II", "TRUE LEADER I", "TRUE LEADER II", "PARTNER"],
-  "GOAL GETTER I": {
+  "keys": ["GOAL_GETTER_I", "GOAL_GETTER_II", "GOAL_GETTER_III", "LEADER_I", "LEADER_II", "TRUE_LEADER_I", "TRUE_LEADER_II", "PARTNER"],
+  "GOAL_GETTER_I": {
     "stars": 5,
     "starPrice": 4,
     "direct": 12,
     "indirect": 0
   },
-  "GOAL GETTER II": {
+  "GOAL_GETTER_II": {
     "stars": 5,
     "starPrice": 6,
     "direct": 13,
     "indirect": 0
   },
-  "GOAL GETTER III": {
+  "GOAL_GETTER_III": {
     "stars": 5,
     "starPrice": 10,
     "direct": 14,
     "indirect": 0
   },
-  "LEADER I": {
+  "LEADER_I": {
     "stars": 5,
     "starPrice": 16,
     "direct": 16,
     "indirect": 4
   },
-  "LEADER II": {
+  "LEADER_II": {
     "stars": 5,
     "starPrice": 30,
     "direct": 16,
     "indirect": 6
   },
-  "TRUE LEADER I": {
+  "TRUE_LEADER_I": {
     "stars": 5,
     "starPrice": 80,
     "direct": 18,
     "indirect": 8
   },
-  "TRUE LEADER II": {
+  "TRUE_LEADER_II": {
     "stars": 5,
     "starPrice": 120,
     "direct": 18,

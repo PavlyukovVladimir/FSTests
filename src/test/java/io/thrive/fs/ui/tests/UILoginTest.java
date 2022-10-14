@@ -9,7 +9,6 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.thrive.fs.ui.BaseUISelenideTest;
 import io.thrive.fs.ui.pages.fs.ui.LoginPage;
-import io.thrive.fs.ui.pages.fs.ui.RegistrationPage;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

@@ -10,6 +10,7 @@
         * Runs all API tests: `mvn -Dtest=io.thrive.fs.api.tests.*Test test`
         * [Positive registration scenario with a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithReferCodeScenarioTest test`
         * [Positive registration scenario without a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest) `mvn -Dtest=io.thrive.fs.api.tests.ApiRegistrationTest#registrationWithoutReferCodeScenarioTest test`
+        * [Positive lvl scenario](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.api.tests.APILvlsTest#lvlsTest) `mvn -Dtest=io.thrive.fs.api.tests.APILvlsTest#lvlsTest test`
     * **UI**:
         * Runs all UI tests: `mvn -Dtest=io.thrive.fs.ui.tests.*Test test`
         * [Positive registration scenario without a referral code](jetbrains://idea/navigate/reference?project=FSTests&fqn=io.thrive.fs.ui.tests.UIRegistrationTest#registrationNewUserWithoutReferralCodeTest) `mvn -Dtest=io.thrive.fs.ui.tests.UIRegistrationTest#registrationNewUserWithoutReferralCodeTest test`
@@ -20,7 +21,7 @@
     * [view the report](target/site/allure-maven-plugin/index.html)
     * `mvn allure:serve` - generates an Allure report and opens it in the default browser
 
-## CI/CD:
+## CI/CD(временно не работает):
 
 Each commit initiates the launch of tests, packs the folder with reports into an archive and transfers it to artifacts
 

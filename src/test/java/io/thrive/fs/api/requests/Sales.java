@@ -3,13 +3,7 @@ package io.thrive.fs.api.requests;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.thrive.fs.help.Constants;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Sales{
@@ -22,8 +16,8 @@ public class Sales{
     private final String endpointSalesAll = "sales/all";
     private final String endpointSalesChild = "sales/child";
     private final String endpointSalesUserLevel = "sales/user-level";
-    private final String endpointSalesUserStatistic = "sales/user-statistic";
-    private final String endpointSalesGroupStatistic = "sales/group-statistic";
+    private final String endpointSalesUserStatistics = "sales/user-statistics";
+    private final String endpointSalesGroupStatistics = "sales/group-statistics";
     private final String endpointSalesStatisticsNumberSales = "sales/statistics/number-sales";
     private final String endpointSalesStatisticsNumberSalesToday = "sales/statistics/number-sales/today";
     private final String endpointSalesTest = "sales/test";
@@ -63,7 +57,7 @@ public class Sales{
     }
 
     /**
-     * @param adminToken
+     * @param accessToken
      * @return <pre>{@code
      * [
      *   {
@@ -83,11 +77,11 @@ public class Sales{
      * ]
      * }</pre>
      */
-    public Response getSalesAll(String adminToken) {
+    public Response getSalesAll(String accessToken) {
         Response response = RestAssured.given()
                 .baseUri(baseUrl).basePath(endpointSalesAll)
                 .headers("Accept", "application/json")
-                .auth().oauth2(adminToken)
+                .auth().oauth2(accessToken)
                 .when()
                 .log()
                 .all()
@@ -135,6 +129,81 @@ public class Sales{
                 .all();
         return response;
     }
+
+    /**
+     * @param accessToken
+     * @return <pre>{@code
+     * {
+     *   "id": 0,
+     *   "intStars": 0,
+     *   "starThirds": 0,
+     *   "level": 0,
+     *   "levelTitle": "GOAL_GETTER_I",
+     *   "salesToNextLevel": 0
+     * }
+     * }</pre>
+     */
+    public Response getSalesUserLevel(String accessToken) {
+        Response response = RestAssured.given()
+                .baseUri(baseUrl).basePath(endpointSalesUserLevel)
+                .header("Accept", "application/json")
+                .auth().oauth2(accessToken)
+                .when()
+                .log()
+                .all()
+                .get();
+        response.then()
+                .log()
+                .all();
+        return response;
+    }
+
+    /**
+     * @param adminToken
+     * @param hotmartTransactionCode
+     * @return <pre>{@code
+     * [
+     *   {
+     *     "id": 0,
+     *     "createdAt": "2022-10-13T13:03:29.899Z",
+     *     "updatedAt": "2022-10-13T13:03:29.900Z",
+     *     "deletedAt": "2022-10-13T13:03:29.900Z",
+     *     "hotmartTransactionCode": "string",
+     *     "purchaseDate": "2022-10-13T13:03:29.900Z",
+     *     "productName": "string",
+     *     "price": 0,
+     *     "clientName": "string",
+     *     "status": "string",
+     *     "warrantyDate": "2022-10-13T13:03:29.900Z",
+     *     "paymentType": "string"
+     *   }
+     * ]
+     * }</pre>
+     */
+    public Response getSalesUserStatistics(String adminToken, String hotmartTransactionCode) {
+        Response response = RestAssured.given()
+                .baseUri(baseUrl).basePath(endpointSalesUserStatistics)
+                .header("Accept", "application/json")
+                .auth().oauth2(adminToken)
+                .queryParam("hotmartTransactionCode", hotmartTransactionCode)
+                .when()
+                .log()
+                .all()
+                .get();
+        response.then()
+                .log()
+                .all();
+        return response;
+    }
+
+
+
+
+
+
+
+
+
 
     /**
      * @param accessToken

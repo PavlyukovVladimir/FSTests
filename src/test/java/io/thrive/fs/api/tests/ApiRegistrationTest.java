@@ -7,6 +7,7 @@ import io.qameta.allure.Story;
 import io.thrive.fs.api.BaseAPITest;
 import io.thrive.fs.api.common.AuthMethods;
 import io.thrive.fs.api.common.GlossaryMethods;
+import io.thrive.fs.api.common.SalesMethods;
 import io.thrive.fs.api.common.UsersMethods;
 import io.thrive.fs.api.requests.Sales;
 import io.thrive.fs.help.Constants;
@@ -182,9 +183,9 @@ public class ApiRegistrationTest extends BaseAPITest {
         saveUserLoginData(email, pass);
     }
 
-    @Test
-    public void test() {
-        Sales sales = new Sales(Constants.BASE_URL + "api/");
-        sales.getSalesAll("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoxMDMsImlhdCI6MTY2NTQ5NzA0NywiZXhwIjoxNjY2MTAxODQ3fQ.zudgIpR8SLFqKYGz9IzpoF9RVz24pVeDDuTe9Xp3YkM");
-    }
+//    @Test
+//    public void test() {
+//        SalesMethods salesMethods = new SalesMethods(Constants.BASE_URL + "api/");
+//        JSONObject jsonObject = salesMethods.salesUserLevel("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ4NiwiaWF0IjoxNjY1NzQ2OTg4LCJleHAiOjE2NjYzNTE3ODh9._cbaj2dFhaaXuzr0d66NBPd7lGuVoXr8otGXpz_HCp0");
+//    }
 }
